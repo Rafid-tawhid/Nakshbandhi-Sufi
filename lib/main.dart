@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
 }
 
 //
-//
+
 class MainNavigationWrapper extends StatefulWidget {
   @override
   _MainNavigationWrapperState createState() => _MainNavigationWrapperState();
