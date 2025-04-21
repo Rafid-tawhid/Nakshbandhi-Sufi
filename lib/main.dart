@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
+//
 
 class MainNavigationWrapper extends StatefulWidget {
   @override
@@ -47,7 +47,7 @@ class MainNavigationWrapper extends StatefulWidget {
 
 class _MainNavigationWrapperState extends State<MainNavigationWrapper> {
   int _currentIndex = 0;
-  //
+  
   final List<Widget> _screens = [
     HomeScreen(),
     TasbeehScreen(),
