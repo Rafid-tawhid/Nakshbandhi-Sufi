@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:nakshbandhi_sufi/salah_screen.dart';
 import 'package:nakshbandhi_sufi/setting_screen.dart';
+import 'package:nakshbandhi_sufi/tsabhee_screen.dart';
 
 import 'home_screen.dart';
 
@@ -15,6 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Islamic App',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -50,8 +53,8 @@ class _MainNavigationWrapperState extends State<MainNavigationWrapper> {
   
   final List<Widget> _screens = [
     HomeScreen(),
-    TasbeehScreen(),
-    SalahScreen(),
+    TasbihCounterScreen(),
+    NamazTimings(),
     LibraryScreen(),
     SettingsScreen(),
   ];
@@ -59,9 +62,11 @@ class _MainNavigationWrapperState extends State<MainNavigationWrapper> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: _screens[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.white,
         currentIndex: _currentIndex,
         selectedItemColor: Colors.blue,
         unselectedItemColor: Colors.grey,
@@ -99,19 +104,9 @@ class _MainNavigationWrapperState extends State<MainNavigationWrapper> {
 
 
 
-class TasbeehScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return const Center(child: Text('Tasbeeh Screen'));
-  }
-}
 
-class SalahScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return const Center(child: Text('Salah Screen'));
-  }
-}
+
+
 
 class LibraryScreen extends StatelessWidget {
   const LibraryScreen({super.key});
