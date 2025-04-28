@@ -1,76 +1,83 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
+import 'package:flutter/material.dart';
+
+class NewsFeedScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Text('NAQSHBANDI SUFI'),
-        centerTitle: true,
+        title: Text('NAQSHBANDI SUFI®',
+            style: TextStyle(fontWeight: FontWeight.bold)),
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Explore Our Gatherings section
-            Row(
+            // Header Section
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  'Explore Our Gatherings',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                TextButton(
-                  onPressed: () {},
-                  child: Text('See all'),
-                ),
+                Text('Explore Our Gatherings',
+                    style:
+                        TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                Text('See all ➤', style: TextStyle(color: Colors.blue)),
               ],
             ),
-            SizedBox(height: 8),
-            const Card(
-              child: Padding(
-                padding: EdgeInsets.all(16.0),
-                child: Center(
-                  child: Text(
-                    'There are no upcoming gatherings at the moment.',
-                    style: TextStyle(color: Colors.grey),
-                  ),
-                ),
+            SizedBox(height: 16),
+            Container(
+              padding: EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Center(
+                child: Text('There are no upcoming gatherings at the moment.',
+                    style: TextStyle(color: Colors.grey[600])),
               ),
             ),
-            Divider(height: 40, thickness: 1),
+            SizedBox(height: 24),
 
-            // News Feed section
-            Text(
-              'News Feed',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
+            // News Feed Title
+            const Text('News Feed',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            const SizedBox(height: 16),
+
+            // Post 1
+            _buildPostCard(
+              title: 'Naqshbandi Sufi',
+              date: '5th Apr 2025',
+              imageUrl:
+                  'https://static-01.daraz.com.bd/p/117b5575359824a3c9805821d423e008.jpg',
             ),
             SizedBox(height: 16),
 
-            // First news item
-            _buildNewsItem(
-              title: 'Naqshbandi Sufi',
-              date: '5th Apr 2025',
-              eventTitle: 'Milad-un-Nabi',
-              location: 'Sar Suba Shah, PK | Tuesday 8th April 2025',
+            // Post 2
+            _buildPostCard(
+              title: 'Milad-un-Nabi 🌟',
+              subtitle: 'Sar Suba Shah, PK | Tuesday 8th April 2025',
+              imageUrl:
+                  'https://static-01.daraz.com.bd/p/117b5575359824a3c9805821d423e008.jpg',
             ),
-            Divider(),
             SizedBox(height: 16),
 
-            // Second news item
-            _buildNewsItem(
+            // Post 3
+            _buildPostCard(
               title: 'Naqshbandi Sufi',
               date: '5th Apr 2025',
-              eventTitle: 'Annual Milad-un-Nabi',
-              location: 'Shan-e-Siddiq-e-Akbar',
+              imageUrl:
+                  'https://static-01.daraz.com.bd/p/117b5575359824a3c9805821d423e008.jpg',
+            ),
+            SizedBox(height: 16),
+
+            // Post 4
+            _buildPostCard(
+              title: 'Annual Milad-un-Nabi 🌟',
+              subtitle: 'Shan-e-Siddiq-e-Akbar 🌟\n...   رضى الله عنه',
+              imageUrl: 'https://static-01.daraz.com.bd/p/117b5575359824a3c9805821d423e008.jpg',
               showSeeMore: true,
             ),
           ],
@@ -79,54 +86,73 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildNewsItem({
+  Widget _buildPostCard({
     required String title,
-    required String date,
-    required String eventTitle,
-    required String location,
+    String? date,
+    String? subtitle,
+    required String imageUrl,
     bool showSeeMore = false,
   }) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              title,
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
-              ),
-            ),
-            Text(
-              date,
-              style: const TextStyle(
-                color: Colors.grey,
-                fontSize: 14,
-              ),
-            ),
-          ],
-        ),
-        const SizedBox(height: 8),
-        Text(
-          eventTitle,
-          style: const TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 16,
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(8),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black12,
+            blurRadius: 4,
+            offset: Offset(0, 2),
           ),
-        ),
-        const SizedBox(height: 4),
-        Text(location),
-        if (showSeeMore)
-          Align(
-            alignment: Alignment.centerRight,
-            child: TextButton(
-              onPressed: () {},
-              child: const Text('See more'),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // Image
+          ClipRRect(
+            borderRadius: BorderRadius.vertical(top: Radius.circular(8)),
+            child: Image.network(
+              imageUrl,
+              height: 200,
+              width: double.infinity,
+              fit: BoxFit.cover,
             ),
           ),
-      ],
+          Padding(
+            padding: EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Title and Date
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(title,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 16)),
+                    if (date != null)
+                      Text(date, style: TextStyle(color: Colors.grey[600])),
+                  ],
+                ),
+                SizedBox(height: 8),
+
+                // Subtitle
+                if (subtitle != null)
+                  Text(subtitle, style: TextStyle(color: Colors.grey[700])),
+                SizedBox(height: 8),
+
+                // See More
+                if (showSeeMore)
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child:
+                        Text('See more', style: TextStyle(color: Colors.blue)),
+                  ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

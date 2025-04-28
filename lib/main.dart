@@ -52,7 +52,7 @@ class _MainNavigationWrapperState extends State<MainNavigationWrapper> {
   int _currentIndex = 0;
   
   final List<Widget> _screens = [
-    HomeScreen(),
+    NewsFeedScreen(),
     TasbihCounterScreen(),
     NamazTimings(),
     LibraryScreen(),
@@ -108,11 +108,3 @@ class _MainNavigationWrapperState extends State<MainNavigationWrapper> {
 
 
 
-class LibraryScreen extends StatelessWidget {
-  const LibraryScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(child: Text('Library Screen'));
-  }
-}

@@ -1,6 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:nakshbandhi_sufi/widgets/globar_counting_tasbhee.dart';
 
 class TasbihCounterScreen extends StatelessWidget {
   @override
@@ -23,6 +24,7 @@ class TasbihCounterScreen extends StatelessWidget {
               const SizedBox(height: 24),
               Expanded(
                 child: ListView(
+
                   children: [
                     buildSubmissionRow('Durud', Colors.pink, 0),
                     buildSubmissionRow('Dalayl al-Khayrat', Colors.green, 0),
@@ -30,9 +32,12 @@ class TasbihCounterScreen extends StatelessWidget {
                     buildSubmissionRow('Khatam e Khwajgan', Colors.purple, 0),
                     buildSubmissionRow('Qur\'an - Full', Colors.red, 0),
                     buildSubmissionRow('Qur\'an - Surah', Colors.blue, 0),
+                    CollectionPeriodWidget()
+
                   ],
                 ),
-              )
+              ),
+
             ],
           ),
         ),
