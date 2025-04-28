@@ -4,6 +4,7 @@ import 'package:nakshbandhi_sufi/setting_screen.dart';
 import 'package:nakshbandhi_sufi/tsabhee_screen.dart';
 
 import 'home_screen.dart';
+import 'library_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -55,7 +56,7 @@ class _MainNavigationWrapperState extends State<MainNavigationWrapper> {
     NewsFeedScreen(),
     TasbihCounterScreen(),
     NamazTimings(),
-    LibraryScreen(),
+    HadithLibraryScreen(),
     SettingsScreen(),
   ];
 //
