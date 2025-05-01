@@ -99,6 +99,7 @@ class LoginScreen extends StatelessWidget {
                   ],
                 ),
               ),
+              //
               SizedBox(height: 32),
 
               // Continue Button
